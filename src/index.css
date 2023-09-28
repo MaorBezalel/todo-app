@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    *, *::before, *::after {
+        @apply box-border;
+    }
+
+    body {
+        @apply text-xl;
+        font-family: Josefin Sans, sans-serif;
+        line-height: calc(1em + 0.5rem);
+    }
+
+    h1, h2, h3, h4, h5, h6,
+    p, a, input, label, span, div, ul, form, input::placeholder {
+        @apply transition-all duration-200 ease-in-out;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-bold mobileBig:!text-4xl mobileSmall:!text-3xl;
+    }
+
+    p {
+        @apply font-normal !text-lg mobileBig:!text-base mobileSmall:!text-xs;
+    }
+
+    a {
+        @apply font-bold text-blue-500 !text-lg mobileBig:!text-base mobileSmall:!text-xs;
+    }
+
+    br {
+        @apply hidden mobileBig:inline mobileSmall:inline;
+    }
+
+    img {
+        @apply mobileBig:scale-[0.8] mobileSmall:scale-[0.75];
+    }
+
+    input::placeholder {
+        @apply mobileBig:!text-base mobileSmall:!text-xs;
+    }
+}
+
+@layer components {
+    #root {
+        overflow: hidden;
+    }
+    
+    #App {
+        @apply min-h-screen bg-no-repeat;
+        background-size: 100% 300px;
+    }
+}
+
+@layer utilities {
+    .desktop-first-container {
+        @apply max-w-xl mx-auto mobileBig:max-w-[375px] mobileSmall:max-w-xs;
+    }
+
+    .item-shadow {
+        @apply shadow-2xl;
+    }
+}
